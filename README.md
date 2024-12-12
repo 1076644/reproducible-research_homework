@@ -1,6 +1,7 @@
 # Reproducible research: version control and R
 
-\# INSERT ANSWERS HERE #
+### Questions 1,2 and 3:
+https://github.com/1076644/logistic_growth_computer_week3/tree/main
 
 ## Instructions
 
