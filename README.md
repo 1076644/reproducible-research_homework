@@ -6,15 +6,15 @@ https://github.com/1076644/logistic_growth_computer_week3/tree/main
 ## Q4) (30 points) Sometimes we are interested in modelling a process that involves randomness. A good example is Brownian motion. We will explore how to simulate a random process in a way that it is reproducible:
 ### a. A script for simulating a random_walk is provided in the question-4-code folder of this repo. Execute the code to produce the paths of two random walks. What do you observe? (10 points)
 
-If we execute to code given in the question-4-code folder, we produce 2 plots side by side simulating a random walk for 2 independent iterations. 500 steps are performed in each plot, with the gradient of the colour of blue dictating how many of the 500 steps have been taken. This allows us to see how the random motion changes over time, with earlier steps being shown in a darker blue which progressively becomes lighter. the sample unit for each step is set to 0.25, with a random angle taken from 0 to 2π radians. Combining these metrics over 500 iterations generates x and y coordinates in both the plots. reproducing this code over and over again however produces random plots that are not repeatable, as a different set of random angles are used whihc produce different trajectories. This leads to issues if wanting to use thos code over and over again, or by giving it to someone else to see if they can copme to the same results. We do see both plots beginning at the origin, but there is no observable relationship between the graphs, which is a coommon characteritics of Brownian motion. 
+If we execute to code given in the question-4-code folder, we produce two plots side by side simulating a random walk for two independent iterations. 500 steps are performed in each plot, with the gradient of the colour of blue dictating how many of the 500 steps have been taken. This allows us to see how the random motion changes over time, with earlier steps being shown in a darker blue which progressively becomes lighter. the sample unit for each step is set to 0.25, with a random angle taken from 0 to 2π radians. Combining these metrics over 500 iterations generates x and y coordinates in both the plots. reproducing this code over and over again however produces random plots that are not repeatable, as a different set of random angles are used whihc produce different trajectories. This leads to issues if wanting to use thos code over and over again, or by giving it to someone else to see if they can copme to the same results. We do see both plots beginning at the origin, but there is no observable relationship between the graphs, which is a common characteritics of Brownian motion. 
 
 ![image](https://github.com/user-attachments/assets/56a0f454-59eb-4b28-a626-19311c334759)
 
-- As we can see, we produce two independent iterations of the code, and if re-run, these graphs would not be reproduced, whihc gives us many issues when wanting to share our code.
+- As we can see, we produce two independent iterations of the code, and if re-run, these graphs would not be reproduced, which gives us many issues when wanting to share our code or come back and change things later.
 
 ### b. Investigate the term random seeds. What is a random seed and how does it work? (5 points)
 
-A random seed is a number or vector that is used to intialise random number generators. The random number generator is completely determined by the seed with the random seed allowing other researchers to replicate the results exactly, whichb is highly desireable in the scientific world. This is especially crucial when replicating random processes such as Brownian motion. 
+A random seed is a number or vector that is used to intialise random number generators. The random number generator is completely determined by the seed with the random seed allowing other researchers to replicate the results exactly, which is highly desirable in the scientific world. This is especially crucial when replicating random processes such as Brownian motion, whihc is being used as an example here.
 
 ### c. Edit the script to make a reproducible simulation of Brownian motion. Commit the file and push it to your forked reproducible-research_homework repo. (10 points)
 
@@ -79,15 +79,19 @@ grid.arrange(plot1, plot2, ncol=2)
 ```
 - This code prodcues the random graphs explained in Q4)a.
 
-The edited script can be observed in the file "Edited Script.Rmd" in the question-4-code file in the reproducible-research_homework repo. Evidence of this script now producing reproducible results is shown in the figure below where seperate data sets used for Brownian motion produce the same graph due to the addition of a seed number. 
+The edited script can be observed in the file "Edited Script.Rmd" in the `question-4-code` file in the `reproducible-research_homework` repo. Evidence of this script now producing reproducible results is shown in the figure below where seperate data sets used for Brownian motion produce the same graph due to the addition of a seed number. 
 
 #### Reprducible Figure 
 ![image](https://github.com/user-attachments/assets/1f16032b-1e2f-4c43-a0f4-df5c3bf78699)
 
 ### d. Go to your commit history and click on the latest commit. Show the edit you made to the code in the comparison view (add this image to the README.md of the fork). (5 points)
 
-Below shows a screenshot of my commit history to the Edited code script and the changes made from the original question-4-code provided. 
+Below shows a screenshot of my commit history to the Edited code script and the changes made from the original `question-4-code` provided to ensure that this code is now reproducible.
 
+#### Commit history illustrating the changes made to the code
+![image](https://github.com/user-attachments/assets/fb3975fb-cbf1-4c26-ba50-dc52c89faf7f)
+
+## Q5) (30 points) In 2014, Cui, Schlub and Holmes published an article in the Journal of Virology (doi: https://doi.org/10.1128/jvi.00362-14) showing that the size of viral particles, more specifically their volume, could be predicted from their genome size (length). They found that this relationship can be modelled using an allometric equation of the form **$`V = \alpha L^{\beta}`$**, where $`V`$ is the virion volume in nm<sup>3</sup> and $`L`$ is the genome length in nucleotides.
 
 
 ## Instructions
