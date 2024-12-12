@@ -1,7 +1,25 @@
 # Reproducible research: version control and R
 
-### Questions 1,2 and 3:
+## Questions 1,2 and 3:
 https://github.com/1076644/logistic_growth_computer_week3/tree/main
+
+## Q4) (30 points) Sometimes we are interested in modelling a process that involves randomness. A good example is Brownian motion. We will explore how to simulate a random process in a way that it is reproducible:
+### a. A script for simulating a random_walk is provided in the question-4-code folder of this repo. Execute the code to produce the paths of two random walks. What do you observe? (10 points)
+
+If we execute to code given in the question-4-code folder, we produce 2 plots side by side simulating a random walk for 2 independent iterations. 500 steps are performed in each plot, with the gradient of the colour of blue dictating how many of the 500 steps have been taken. This allows us to see how the random motion changes over time, with earlier steps being shown in a darker blue which progressively becomes lighter. the sample unit for each step is set to 0.25, with a random angle taken from 0 to 2π radians. Combining these metrics over 500 iterations generates x and y coordinates in both the plots. reproducing this code over and over again however produces random plots that are not repeatable, as a different set of random angles are used whihc produce different trajectories. This leads to issues if wanting to use thos code over and over again, or by giving it to someone else to see if they can copme to the same results. We do see both plots beginning at the origin, but there is no observable relationship between the graphs, which is a coommon characteritics of Brownian motion. 
+
+![image](https://github.com/user-attachments/assets/56a0f454-59eb-4b28-a626-19311c334759)
+
+- As we can see, we produce two independent iterations of the code, and if re-run, these graphs would not be reproduced, whihc gives us many issues when wanting to share our code.
+
+### b. Investigate the term random seeds. What is a random seed and how does it work? (5 points)
+
+A random seed is a number or vector that is used to intialise random number generators. The random number generator is completely determined by the seed with the random seed allowing other researchers to replicate the results exactly, whichb is highly desireable in the scientific world. This is especially crucial when replicating random processes such as Brownian motion. 
+
+### c. Edit the script to make a reproducible simulation of Brownian motion. Commit the file and push it to your forked reproducible-research_homework repo. (10 points)
+
+The original script for the Brownian motion can be sown below
+
 
 ## Instructions
 
