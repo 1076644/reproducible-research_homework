@@ -10,7 +10,9 @@ date: "2024-12-12"
 library(ggplot2)
 library(gridExtra)
 
-random_walk  <- function (n_steps) {
+random_walk  <- function (n_steps, seed) { # This adds the seed section for when we produce the models and R undersatnds what this value is
+
+  set.seed(seed) # This includes the seed fucntion to the model 
   
   df <- data.frame(x = rep(NA, n_steps), y = rep(NA, n_steps), time = 1:n_steps)
   
@@ -34,7 +36,7 @@ random_walk  <- function (n_steps) {
   
 }
 
-data1 <- random_walk(500)
+data1 <- random_walk(500, seed = 12) # In this instance, we are using a seed value of 12 to this data set 
 
 plot1 <- ggplot(aes(x = x, y = y), data = data1) +
   
@@ -46,7 +48,7 @@ plot1 <- ggplot(aes(x = x, y = y), data = data1) +
   
   ylab("y-coordinate")
 
-data2 <- random_walk(500)
+data2 <- random_walk(500, seed = 12) # This adds the same seed of 12 to this data set as well 
 
 plot2 <- ggplot(aes(x = x, y = y), data = data2) +
   
@@ -59,3 +61,5 @@ plot2 <- ggplot(aes(x = x, y = y), data = data2) +
   ylab("y-coordinate")
 
 grid.arrange(plot1, plot2, ncol=2)
+
+# By adding in these seeds, we see both graphs produced as the randome numbe generator produced is the same and can be repeated no matter where the code is run from 
