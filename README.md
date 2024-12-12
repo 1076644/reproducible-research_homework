@@ -93,6 +93,48 @@ Below shows a screenshot of my commit history to the Edited code script and the 
 
 ## Q5) (30 points) In 2014, Cui, Schlub and Holmes published an article in the Journal of Virology (doi: https://doi.org/10.1128/jvi.00362-14) showing that the size of viral particles, more specifically their volume, could be predicted from their genome size (length). They found that this relationship can be modelled using an allometric equation of the form **$`V = \alpha L^{\beta}`$**, where $`V`$ is the virion volume in nm<sup>3</sup> and $`L`$ is the genome length in nucleotides.
 
+### a. Import the data for double-stranded DNA (dsDNA) viruses taken from the Supplementary Materials of the original paper into Posit Cloud (the csv file is in the `question-5-data` folder). How many rows and columns does the table have? (3 points)
+
+The code below demonstrates how we can obtain the data, and then see how many rows and columns the table has 
+ ```r
+DNAdata <- read.csv("Cui_etal2014.csv")
+
+nrow(DNAdata) # This gives us the number of rows in the data set
+ncol(DNAdata) # Thsi gives us the number of the columns in the data set 
+```
+- The output from this gives us **33 rows** and **13 columns**
+
+### b. What transformation can you use to fit a linear model to the data? Apply the transformation. (3 points)
+
+For this data set, a logarithmic transformation can be done, whihc can change the allometric equation into one which resembles the form **$`y = ax + b`$**. 
+
+```math
+V = \alpha L^{\beta}
+```
+This can be transformed into:
+```math
+ln(V) = ln(\alpha) + {\beta}ln(L)
+```
+
+This then resembles a linear model which can then be fitted to this data. This can be done by using the following code below:
+
+```r
+DNAdata$Virion_volume_log <- log(DNAdata$Virion.volume..nm.nm.nm.)  # Log-transformed Virion volume
+DNAdata$Genome_length_log <- log(DNAdata$Genome.length..kb.)  # Log-transformed Genome length
+
+head(DNAdata) #To check this has formatted properly
+```
+Applying the linear model to the data then looks like this:
+
+```r
+linear_regression <- lm(Virion_volume_log ~ Genome_length_log, DNAdata)
+summary(model1)
+```
+The output from this looks as follows:
+
+![image](https://github.com/user-attachments/assets/730b3a84-ab2d-4996-95d8-d17202ccedd5)
+
+### c. Find the exponent ($\beta$) and scaling factor ($\alpha$) of the allometric law for dsDNA viruses and write the p-values from the model you obtained, are they statistically significant? Compare the values you found to those shown in **Table 2** of the paper, did you find the same values? (10 points)
 
 ## Instructions
 
