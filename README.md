@@ -79,7 +79,15 @@ grid.arrange(plot1, plot2, ncol=2)
 ```
 - This code prodcues the random graphs explained in Q4)a.
 
-The editted script can be observed in the file ________ in the reproducible-research_homework repo. 
+The edited script can be observed in the file "Edited Script.Rmd" in the question-4-code file in the reproducible-research_homework repo. Evidence of this script now producing reproducible results is shown in the figure below where seperate data sets used for Brownian motion produce the same graph due to the addition of a seed number. 
+
+#### Reprducible Figure 
+![image](https://github.com/user-attachments/assets/1f16032b-1e2f-4c43-a0f4-df5c3bf78699)
+
+### d. Go to your commit history and click on the latest commit. Show the edit you made to the code in the comparison view (add this image to the README.md of the fork). (5 points)
+
+Below shows a screenshot of my commit history to the Edited code script and the changes made from the original question-4-code provided. 
+
 
 
 ## Instructions
