@@ -106,7 +106,7 @@ ncol(DNAdata) # Thsi gives us the number of the columns in the data set
 
 ### b. What transformation can you use to fit a linear model to the data? Apply the transformation. (3 points)
 
-For this data set, a logarithmic transformation can be done, whihc can change the allometric equation into one which resembles the form **$`y = ax + b`$**. 
+For this data set, a natural log transformation can be done, which can change the allometric equation into one which resembles the form **$`y = ax + b`$**. 
 
 ```math
 V = \alpha L^{\beta}
@@ -136,6 +136,9 @@ The output from this looks as follows:
 
 ### c. Find the exponent ($\beta$) and scaling factor ($\alpha$) of the allometric law for dsDNA viruses and write the p-values from the model you obtained, are they statistically significant? Compare the values you found to those shown in **Table 2** of the paper, did you find the same values? (10 points)
 
+From the table above of our linear model, we can find the exponent ($\beta$) and the scaling factor ($\alpha$), as well as the p values for these estimates to see how good our transformation is for obtaining these key values. 
+
+- Our scaling factor according to the linear model is 7.0748, which is hswon through the intercept. However, this is the ln value, so to get the true value, we need to do **$`e^{7.0748}`$** which gives us a value of **1181.807116**
 ## Instructions
 
 The homework for this Computer skills practical is divided into 5 questions for a total of 100 points. First, fork this repo and make sure your fork is made **Public** for marking. Answers should be added to the # INSERT ANSWERS HERE # section above in the **README.md** file of your forked repository.
