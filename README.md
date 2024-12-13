@@ -138,7 +138,57 @@ The output from this looks as follows:
 
 From the table above of our linear model, we can find the exponent ($\beta$) and the scaling factor ($\alpha$), as well as the p values for these estimates to see how good our transformation is for obtaining these key values. 
 
-- Our scaling factor according to the linear model is 7.0748, which is hswon through the intercept. However, this is the ln value, so to get the true value, we need to do **$`e^{7.0748}`$** which gives us a value of **1181.807116**
+- Our scaling factor according to the linear model is 7.0748, which is hswon through the intercept. However, this is the ln($\alpha$) value, so to get the true value, we need to do **$`e^{7.0748}`$** which gives us a value of **1181.807116** for ($\alpha$), which is also shown at the bottom of this table
+  - The p value for this is **2.28 x 10<sup>-10</sup>** which is highly significant at the 0.001 level.
+- For our exponent ($\beta$), we need to obtain the gradient whihc in this case is 1.5152. We do not need to scale this as in our linear model, ($\beta$) is still in the same form
+  - The p value for this is **6.44 x 10<sup>-10</sup>** which is also highly significant at the 0.001 level
+
+Comapring these values to the ones in the orginal paper by (Cui *et al.* 2014) shows that there obtained value for ($\alpha$) is 1182 and 1.52 for the exponent ($\alpha$). This makes my model and estimates extremely similar to thos eobtained by the reserachers and gives me confidence in the model used. 
+
+### d. Write the code to reproduce the figure shown below. (10 points) 
+
+This is the R code used to produce the graph, whilst also showing the graph produced from the code
+
+#### R code
+```r
+#install.packages(ggplot2) # This is hased out as it may already be installed and is only here if not already installed on the device
+library(ggplot2)
+
+ggplot(DNAdata, aes(x = Genome_length_log, y = Virion_volume_log)) +
+  geom_point(color = "black", size = 2) +  # Set points to black for clear visuals for viewing 
+  geom_smooth(method = "lm", se = TRUE, color = "blue", fill = "grey", alpha = 0.2) + # adds a blue line and grey confidence interval which is colourblind friendly 
+  theme_minimal() +
+  labs(
+    x = "log [Genome Length (kb)]",
+    y = "log [Virion Volume (nm³)]"
+  ) +
+  theme(panel.border = element_rect(color = "black", fill = NA, linewidth = 1)) 
+  theme(
+    legend.position = "none",   # Removes the legend as this is not needed 
+    plot.title = element_text(hjust = 0.5) ,
+  )
+```
+
+#### Graph produced
+![image](https://github.com/user-attachments/assets/7cf08c1e-78d8-4432-bb68-8fde76b00393)
+
+### e. What is the estimated volume of a 300 kb dsDNA virus? (4 points) 
+
+To obtain an estimate for a 300 kb dsDNA virus, we can use the values we estimated above and get an output when we set our genome length to 300kb. The code for this is shown below:
+
+```r
+# Given values from the linear regression model done previosuly
+alpha <- 1182  # Intercept 
+beta <- 1.5152    # Exponent
+L <- 300          # Genome length in kb
+
+# Estimate the virion volume (V) using the equation V = alpha * L^beta
+V_estimated <- alpha * L^beta
+
+#Printing the result
+V_estimated
+```
+This gives us a value of **6698100 nm<sup>3</sup>** which can be rounded to **6,700,000 nm<sup>3</sup>**
 ## Instructions
 
 The homework for this Computer skills practical is divided into 5 questions for a total of 100 points. First, fork this repo and make sure your fork is made **Public** for marking. Answers should be added to the # INSERT ANSWERS HERE # section above in the **README.md** file of your forked repository.
